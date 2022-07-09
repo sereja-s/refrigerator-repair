@@ -57,6 +57,36 @@ class Info
 		return $result->fetch();
 	}
 
+	public static function getlistOfWorks()
+	{
+		// Соединение с БД
+		$db = Db::getConnection();
+
+		$worksList = [];
+
+		// Запрос к БД
+		$sql = "SELECT id, title, text FROM works_list WHERE status = '1' ";
+		$result = $db->query($sql);
+
+		// Получение и возврат результатов
+
+		if ($result != false) {
+
+			$i = 0;
+
+			// Метод fetch()- возвращает 1-ну запись (строку) из всех выбранных SQL-запросом
+			// (если в выборку попали несколько записей, то в цикле можно получить следующий элемент)
+			while ($row = $result->fetch()) {
+				$worksList[$i]['id'] = $row['id'];
+				$worksList[$i]['title'] = $row['title'];
+				$worksList[$i]['text'] = $row['text'];
+				$i++;
+			};
+		}
+
+		return $worksList;
+	}
+
 	/**
 	 * Возвращает путь к изображению в блоке с информацией
 	 * @param integer $id

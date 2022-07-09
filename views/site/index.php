@@ -11,25 +11,46 @@
 		<div class="services__inner">
 			<div class="services__content">
 				<div class="services__content-box">
-					<!-- <h6 class="services__content-title">						
-					</h6> -->
+					<h6 class="services__content-title">
+						<?php echo $service['title_before_paragraph']; ?>
+					</h6>
+
 					<div class="services__content-textbox">
 						<p class="services__content-text">
 							<?php echo $service['paragraph']; ?>
 						</p>
 						<!-- <p class="services__content-text">							
 						</p> -->
+
+
+
+						<ul class="services__list-left">
+
+							<?php foreach ($works as $worksItem) : ?>
+
+								<li class="services__item-left">
+									<!-- <p class="benefits__item-num">650</p> -->
+									<p class="benefits__item-title"><?php echo $worksItem['title']; ?></p>
+									<p class="benefits__item-text">
+										<?php echo $worksItem['text']; ?>
+									</p>
+								</li>
+
+							<?php endforeach; ?>
+
+						</ul>
+
 					</div>
 				</div>
-				<div class="services__content-box">
-					<!-- <h6 class="services__content-title">						
-					</h6> -->
+				<!-- <div class="services__content-box">
+					<h6 class="services__content-title">						
+					</h6>
 					<div class="services__content-textbox">
-						<!-- <p class="services__content-text">							
-						</p> -->
+						<p class="services__content-text">							
+						</p>
 					</div>
-					<!-- <a class="button button--decor" href="#">КОНСУЛЬТАЦИЯ ЭКСПЕРТА</a> -->
-				</div>
+					<a class="button button--decor" href="#">КОНСУЛЬТАЦИЯ ЭКСПЕРТА</a>
+				</div> -->
 			</div>
 			<ol class="services__list">
 				<li data-wow-delay="1s" class="services__item wow animate__fadeInRight">
@@ -187,12 +208,22 @@
 					</li>
 				</ul>
 			</div>
-			<form class="contacts__form" style="background-color: #48403d;">
+
+
+
+			<form action="#" method="post" class="contacts__form" style="background-color: #48403d;">
 				<h2 class="title contacts__title">Оставить заявку</h2>
-				<input class="contacts__input" type="text" placeholder="Как Вас зовут?">
-				<input class="contacts__input" type="tel" placeholder="Ваш номер телефона">
+				<h5 class="benefits__item-text">Есть вопрос? Напишите нам и мы перезвоним</h5>
+				<br />
+				<input class="contacts__input" type="text" name="userName" value="" placeholder="Как Вас зовут?">
+				<input class="contacts__input" type="tel" name="userTel" value="" placeholder="Ваш номер телефона">
+				<input class="contacts__input" type="text" name="userText" value="" placeholder="Текст сообщения">
+
 				<button class="contacts__btn button" type="submit">Отправить заявку</button>
 			</form>
+
+
+
 		</div>
 	</div>
 </section>
